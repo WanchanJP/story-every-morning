@@ -18,7 +18,7 @@
 
 ## 公開URL
 
-[https://あなたのユーザー名.github.io/story-every-morning](https://あなたのユーザー名.github.io/story-every-morning)
+[https://WanchanJP.github.io/story-every-morning](https://あなたのユーザー名.github.io/story-every-morning)
 
 ---
 
