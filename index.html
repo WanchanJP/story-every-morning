@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>毎朝ショートショート - 朝、目をひらくたびに。ひとつだけの物語が届く。</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Yu Gothic", "YuGothic", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background-color: #faf9f6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f5f3f0 0%, #e8e4df 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            color: #2c2c2c;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #8b7355 0%, #a0916f 100%);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(139, 115, 85, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 115, 85, 0.4);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2c2c2c;
+            margin-bottom: 60px;
+            font-weight: 300;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 40px 20px;
+            background: #faf9f6;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #8b7355;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: #2c2c2c;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        /* Sample Story Section */
+        .sample-story {
+            padding: 80px 0;
+            background: #f8f6f3;
+        }
+
+        .story-card {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .story-title {
+            font-size: 1.8rem;
+            color: #2c2c2c;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .story-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #444;
+            font-style: italic;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .testimonial-card {
+            background: #faf9f6;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            color: #444;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            color: #8b7355;
+            font-weight: 500;
+        }
+
+        /* Registration Form */
+        .registration {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f5f3f0 0%, #e8e4df 100%);
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .form-title {
+            text-align: center;
+            font-size: 2rem;
+            color: #2c2c2c;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e8e4df;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #8b7355;
+        }
+
+        .submit-button {
+            width: 100%;
+            background: linear-gradient(135deg, #8b7355 0%, #a0916f 100%);
+            color: white;
+            padding: 18px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 115, 85, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: #2c2c2c;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+
+        .footer a {
+            color: #8b7355;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-container {
+                padding: 30px;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>朝、目をひらくたびに。<br>ひとつだけの物語が届く。</h1>
+                <p class="subtitle">AIがつくる300文字のショートショートを、毎朝メールで。</p>
+                <a href="#registration" class="cta-button">β版に登録する</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">サービスの特徴</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🌅</div>
+                    <h3>毎朝7:07に届く</h3>
+                    <p>一日の始まりに、あなただけの小さな物語をお届けします。忙しい朝でも、ほんの数分で読める長さです。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📖</div>
+                    <h3>1分で読める、日替わりの感動</h3>
+                    <p>300文字程度の短い物語だから、コーヒーを飲みながらでも、電車の中でも、気軽に読めます。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AIによる完全自動生成</h3>
+                    <p>最新のAI技術で毎日新しい物語を生成。人の温度と感情を大切にした、心に響く物語をお届けします。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sample Story Section -->
+    <section class="sample-story">
+        <div class="container">
+            <h2 class="section-title">今日のショートショート</h2>
+            <div class="story-card">
+                <h3 class="story-title">「白い折り鶴」</h3>
+                <p class="story-content">
+                    終電の車内、ぼくの膝に落ちた小さな折り紙。広げると<br>
+                    "あなたの今日が無事に着きますように" という走り書き。<br>
+                    見上げても、誰が置いたのかわからない。<br>
+                    でも降りる駅が少しだけ明るく見えた。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">読者の声</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">「朝が少しだけ好きになった気がする」</p>
+                    <p class="testimonial-author">- Aさん</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">「短いのに、なぜか泣けた」</p>
+                    <p class="testimonial-author">- Bさん</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">「毎日の小さな楽しみができました」</p>
+                    <p class="testimonial-author">- Cさん</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Form -->
+    <section id="registration" class="registration">
+        <div class="container">
+            <div class="form-container">
+                <h2 class="form-title">β版に登録する</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="name">お名前（任意）</label>
+                        <input type="text" id="name" name="name" placeholder="田中太郎">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">メールアドレス</label>
+                        <input type="email" id="email" name="email" placeholder="example@email.com" required>
+                    </div>
+                    <button type="submit" class="submit-button">登録する</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 毎朝ショートショート - 現在β版開発中</p>
+            <p>
+                <a href="#">プライバシーポリシー</a>
+                <a href="#">利用規約</a>
+                <a href="#">お問い合わせ</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for CTA button
+        document.querySelector('.cta-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('#registration').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+
+        // Form submission (placeholder)
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('ありがとうございます！β版の準備ができ次第、ご連絡いたします。');
+        });
+    </script>
+</body>
+</html>
